@@ -22,13 +22,13 @@ local oexec, ogetenv = os.execute, os.getenv
 
 --~~ {{{2 string
 local schar, sfind, sformat, sgsub, smatch, ssub, srep =
-  string.char,
-  string.find,
-  string.format,
-  string.gsub,
-  string.match,
-  string.sub,
-  string.rep
+    string.char,
+    string.find,
+    string.format,
+    string.gsub,
+    string.match,
+    string.sub,
+    string.rep
 --~~ }}}
 
 --~~ {{{2 table
@@ -44,14 +44,14 @@ local wt = require "wezterm"
 
 ---@type table, string, function, table, string, function, string, function
 local G, wt_cfg_dir, wt_col_width, wt_gui, wt_home, wt_hostname, wt_triple, wt_truncate_rx =
-  wt.GLOBAL, ---@diagnostic disable-line: undefined-field
-  wt.config_dir, ---@diagnostic disable-line: undefined-field
-  wt.column_width, ---@diagnostic disable-line: undefined-field
-  wt.gui, ---@diagnostic disable-line: undefined-field
-  wt.home, ---@diagnostic disable-line: undefined-field
-  wt.hostname, ---@diagnostic disable-line: undefined-field
-  wt.target_triple, ---@diagnostic disable-line: undefined-field
-  wt.truncate_right ---@diagnostic disable-line: undefined-field
+    wt.GLOBAL, ---@diagnostic disable-line: undefined-field
+    wt.config_dir, ---@diagnostic disable-line: undefined-field
+    wt.column_width, ---@diagnostic disable-line: undefined-field
+    wt.gui, ---@diagnostic disable-line: undefined-field
+    wt.home, ---@diagnostic disable-line: undefined-field
+    wt.hostname, ---@diagnostic disable-line: undefined-field
+    wt.target_triple, ---@diagnostic disable-line: undefined-field
+    wt.truncate_right ---@diagnostic disable-line: undefined-field
 
 ---@diagnostic disable-next-line: undefined-field
 if not wt.GLOBAL.cache then
@@ -483,8 +483,8 @@ M.fs.pathshortener = function(path, len)
       break
     end
     short_path = short_path
-      .. (short_dir == "." and ssub(dir, 1, len + 1) or short_dir)
-      .. M.fs.path_separator
+        .. (short_dir == "." and ssub(dir, 1, len + 1) or short_dir)
+        .. M.fs.path_separator
   end
   CACHE["pathshortener"][key] = short_path
   return CACHE["pathshortener"][key]
@@ -580,9 +580,9 @@ M.key = {
   },
 
   ---@package
-  modifiers = M.fs.platform().is_mac 
-    and { C = "CTRL", S = "SHIFT", W = "ALT", M = "SUPER" }
-    or { C = "CTRL", S = "SHIFT", W = "SUPER", M = "ALT" },
+  modifiers = M.fs.platform().is_mac
+      and { C = "CTRL", S = "SHIFT", W = "ALT", M = "SUPER" }
+      or { C = "CTRL", S = "SHIFT", W = "SUPER", M = "ALT" },
 }
 
 ---@package
@@ -950,7 +950,7 @@ M.str.format_tab_title = function(pane, title, config, max_width)
     ---full title truncation is not necessary since the dir name will be truncated
     is_truncation_needed = false
     local full_cwd = pane.current_working_dir and pane.current_working_dir.file_path
-      or pane:get_current_working_dir().file_path
+        or pane:get_current_working_dir().file_path
     local cwd = M.fs.basename(full_cwd)
 
     ---instead of truncating the whole title, truncate to length the cwd to ensure that the
@@ -1067,7 +1067,7 @@ end --~~}}}
 ---detected as "Dark," it returns `"kanagawa-wave"`.  Otherwise, it defaults to
 ---`"kanagawa-lotus"`.
 ---
----@return "kanagawa-wave"|"kanagawa-lotus" colorscheme
+---@return "nordfox"|"kanagawa-lotus" colorscheme
 ---
 ---@usage
 ---~~~lua
@@ -1077,10 +1077,11 @@ end --~~}}}
 ---return Config
 ---~~~
 M.color.get_scheme = function()
-  if sfind((wt_gui and wt_gui.get_appearance() or ""), "Dark") then
-    return "kanagawa-wave"
-  end
-  return "kanagawa-lotus"
+  return "nordfox"
+  -- if sfind((wt_gui and wt_gui.get_appearance() or ""), "Dark") then
+  --   return "kanagawa-wave"
+  -- end
+  -- return "kanagawa-lotus"
 end --~~}}}
 
 --~~ {{{2 M.color.set_tab_button(Config: table, theme: table)
@@ -1119,9 +1120,9 @@ M.color.set_tab_button = function(Config, theme)
     local bl = require("utils.class.layout"):new "ButtonLayout"
     local attributes = {
       style.intensity
-        or (style.italic and "Italic")
-        or (style.strikethrough and "Strikethrough")
-        or (style.underline ~= "None" and style.underline),
+      or (style.italic and "Italic")
+      or (style.strikethrough and "Strikethrough")
+      or (style.underline ~= "None" and style.underline),
     }
 
     bl:append(sep_bg, sep_fg, sep.right, attributes)

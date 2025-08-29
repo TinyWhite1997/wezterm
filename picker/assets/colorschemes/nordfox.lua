@@ -17,7 +17,7 @@ M.scheme = {
   selection_bg = "#3E4A5B",
   selection_fg = "#CDCECF",
   scrollbar_thumb = "#7E8188",
-  split = "#232831",
+  split = "#CDCECF",
   ansi = {
     "#3B4252",
     "#BF616A",

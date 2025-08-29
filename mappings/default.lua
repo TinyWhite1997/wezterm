@@ -61,7 +61,7 @@ local mappings = {
     act.ActivatePaneDirection "Prev",
     "prev tab",
   },
-  { "<M-p>", act.PaneSelect, "pick" },
+  { "<C-p>", act.PaneSelect, "pick" },
   -- {
   --   "<C-M-h>",
   --   act.ActivatePaneDirection "Left",
