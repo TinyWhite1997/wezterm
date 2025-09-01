@@ -53,7 +53,7 @@ Config.font = wt.font_with_fallback {
 }
 
 if fs.platform().is_win then
-  Config.font_size = 9.5
+  Config.font_size = 12
 else
   Config.font_size = 14
 end
