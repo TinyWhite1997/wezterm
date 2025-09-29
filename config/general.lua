@@ -54,4 +54,6 @@ Config.ssh_domains = {}
 -- ref: https://wezfurlong.org/wezterm/multiplexing.html#unix-domains
 Config.unix_domains = {}
 
+Config.native_macos_fullscreen_mode = true
+
 return Config
